@@ -4,7 +4,7 @@ body {
     font-family: "Bartender Bold Serif",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
-#home, #menu, #about, #contact {
+#home, #menu, #about, #order, #contact, #footer {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -12,7 +12,7 @@ body {
     background-color: black;
 }
 
-#menu-container, #about-container {
+#menu-container, #about-container, #order-container {
     width: 100%;
     padding: 100px 12% 0;
     text-align: center;
@@ -31,6 +31,17 @@ body {
     padding: 100px 10% 0;
     justify-content: center;
     align-items: center;
+}
+
+#order-container-inner {
+    display: flex;
+    justify-content: center;
+}
+
+#footer-container {
+    width: 100%;
+    padding: 100px 12% 100px;
+    text-align: center;
 }
 
 #contact-container-inner {
@@ -82,7 +93,7 @@ body {
     color: #ad9a74;
 }
 
-.menu-title, .about-title, .contact-title {
+.menu-title, .about-title, .order-title, .contact-title {
     font-size: 2.5em;
     font-family: "Bartender Semi Condensed Serif Pressed",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     color: #ad9a74;
@@ -94,14 +105,19 @@ body {
     width: 100%;
 }
 
+.menu-table-row {
+    display: flex;
+}
+
 .contact-image-container {
     width: 100%;
     padding-right: 10%;
 }
 
 .contact-table-container {
+    max-width: 100%;
     background-color:#232323;
-    padding: 30px;
+    padding: 20px 30px;
 }
 
 .menu-table-row, .contact-table-row {
@@ -117,19 +133,96 @@ body {
     padding-right: 5%;
 }
 
-.contact-icon {
-    color: #808080;
-    font-size: 2em;
-    padding-right: 30px;
-}
-
 .menu-dishes {
     width: 70%;
     text-align: left;
     padding-left: 5%;
 }
 
+#order-form {
+    width: 400px;
+    max-width: 100%;
+    text-align: left;
+}
+
+.order-dishes-dropdown, .order-qty-dropdown {
+    height: 31px;
+    width: 400px;
+    max-width: 100%;
+    color: #999;
+    background-color: transparent;
+    font-size: 1em;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    font-weight: 400;
+    border-bottom: 2px solid #ad9a74;
+    padding-left: 8px;
+}
+
+.order-dish, .order-qty {
+    color: #fff;
+    background-color: black;
+    max-width: 100%;
+}
+
+.form-el {
+    margin: 15px 0;
+}
+
+.form-el-1 {
+    margin: 5px 0;
+}
+
+.order-btn {
+    right: 0;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #ad9a74;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 20px;
+    margin-top: 25px;
+}
+
+select option:hover {
+    background-color: #fff;
+}
+
+.order-addr {
+    height: fit-content;
+    overflow: hidden;
+}
+
+.order-input {
+    width: 100%;
+    font-size: 1em;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #ad9a74;
+    padding-left: 8px;
+    padding-bottom: 4px;
+}
+
+.order-dishes-dropdown:focus, .order-qty-dropdown:focus, .order-input:focus {
+    outline: none;
+}
+
+.contact-icon {
+    color: #808080;
+    font-size: 2em;
+    padding-right: 30px;
+}
+
+.contact-icon img {
+    width: 30px;
+}
+
 .contact-info-container {
+    vertical-align: bottom;
     text-align: left;
 }
 
@@ -217,15 +310,6 @@ button:hover, button:focus {
     outline: none;
 }
 
-button[type="button1"], select {
-    width:40%;
-    background-color: #8C0019; 
-    padding-top: 12px;
-    padding-bottom: 12px;
-    /* background-color: #242A2D; */
-    border-radius: 8px;
-    box-sizing: border-box;
-}
 
 .page1 {
     /* background-color: #21CE99; */
@@ -358,25 +442,6 @@ button[type="button1"], select {
     text-align:center;
 }
 
-button[type="button2"], select {
-    width:100%;
-    padding-top:16px;
-    padding-bottom:16px;
-    background-color: #8C0019;
-    border-radius: 8px;
-    box-sizing: border-box;
-}
-
-input[type=Email], select {
-    width: 100%;
-    color: black;
-    background-color: lightgrey;
-    height: 64px;
-    border-radius: 8px;
-    border:transparent;
-    box-sizing: border-box;
-}
-
 #page2 {
     padding: 36px 0px
 }
@@ -406,16 +471,6 @@ input[type=Email], select {
     color:black;
     font-size:24px;
     font-weight: 300px;
-}
-
-button[type="button3"], select {
-    width:150px;
-    height:52px;
-    background-color: #8C0019;
-    padding-left:16px;
-    padding-right:16px;
-    border-radius: 8px;
-    box-sizing: border-box;
 }
 
 .page5-footer {
@@ -506,29 +561,6 @@ hr {
     color: #828282;
 }
 
-input[type=Email2], select {
-    /* width: 236.08px; */
-    width: 100%;
-    height: 64px;
-    border-radius: 8px;
-    background-color:lightgrey;
-    padding-left:24px;
-    margin-right:12px;
-}
-
-button[type="button4"], select {
-    color:white;
-    background-color:#21CE99;
-    width:100%;
-    height:56px;
-    margin-top: 12px;
-    padding-left:16px;
-    padding-right:16px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    font-weight: 700;
-}
-
 .col5-2 a {
     display: inline-block;
     margin: 10px;
@@ -592,6 +624,100 @@ a:hover {
 
 
 @media (max-width:540px) {
+    #home {
+        padding-top: 65.28px;
+    }
+
+    #menu-container, #about-container, #order-container, #contact-container {
+        width: 100%;
+        padding: 50px 10% 0;
+        text-align: center;
+    }
+
+    #home-container {
+        padding: 0;
+    }
+
+    .home-row1 {
+        flex-direction: column;
+    }
+
+    .home-row1-col1, .home-row1-col2 {
+        width: 100%;
+    }
+
+    .home-row1-col2 {
+        margin-top: 10%;
+        padding: 0 10%;
+    }
+
+    .home-text1, .home-text3 {
+        left: 0;
+    }
+
+    .home-text1 {
+        font-size: 36px;
+    }
+    
+    .home-text2 {
+        font-size: 2em;
+    }
+    
+    .home-text3 {
+        font-size: 45px;
+    }
+
+    .contact-icon img {
+        width: 20px;
+    }
+
+    #contact-container-inner {
+        flex-direction: column;
+    }
+
+    .contact-image-container {
+        padding-right: 0;
+        padding-bottom: 30px;
+    }
+
+    .contact-info-line {
+        font-size: 1em;
+    }
+
+    .contact-info-container {
+        vertical-align: middle;
+        padding-top: 8px;
+    }
+
+    .menu-table-row {
+        flex-direction: column;
+    }
+
+    .menu-category {
+        width: 100%;
+        font-size: 1.5em;
+        padding-right: 0;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+
+    .menu-dishes {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .menu-dish-price {
+        padding-right: 0;
+    }
+
+    .menu-dish-title {
+        font-size: 1.5em;
+    }
+
+    .menu-dish-description {
+        font-size: 1.1em;
+    }
+
     .navbar-brand {
         padding-left: 20px;
     }
@@ -701,10 +827,6 @@ a:hover {
     }
 
     .video2 {
-        width:100%;
-    }
-
-    button[type="button3"], select {
         width:100%;
     }
 
@@ -858,6 +980,14 @@ a:hover {
     /* .dropdown-list li {
         float: left;
     } */
+
+    .menu-category {
+        width: 20%;
+    }
+    
+    .menu-dishes {
+        width: 80%;
+    }
 
     .dropdown-list {
         padding-left: 0px;
@@ -1083,31 +1213,8 @@ a:hover {
         margin: 0px 9px;
     }
 
-    input[type=Email2], select {
-        /* width: 236.08px; */
-        width: 100%;
-        height: 64px;
-        border-radius: 8px;
-        background-color:lightgrey;
-        padding-left:24px;
-        margin-right:12px;
-    }
-
     .form2 {
         padding-right: 12px;
-    }
-
-    button[type="button4"], select {
-        color: white;
-        background-color:#21CE99;
-        width:100%;
-        height:56px;
-        margin-top: 12px;
-        padding-left:16px;
-        padding-right:16px;
-        border-radius: 8px;
-        box-sizing: border-box;
-        font-weight: 700;
     }
 
     .col-a {

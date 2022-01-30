@@ -28,6 +28,8 @@
 
     .navbar-brand {
       width: 10%;
+      min-width:90px;
+      max-width:150px;
     }
 
     .nav-link {
@@ -35,6 +37,15 @@
       font-family: "Bartender Semi Condensed Serif Pressed",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
     }
   </style>
+  <script>
+    function fun1() {
+      document.getElementsByClassName("order-dishes-dropdown")[0].style.color = "#fff";
+    }
+
+    function fun2() {
+      document.getElementsByClassName("order-qty-dropdown")[0].style.color = "#fff";
+    }
+  </script>
 </head>
 
 <body>
@@ -78,7 +89,7 @@
 
                 <li class="nav-item list1 list2">
                   <div class="menu-option">
-                    <a class="nav-link" style="color:#fff;font-weight:bold;" href="#"><b>ORDER NOW</b></a>
+                    <a class="nav-link" style="color:#fff;font-weight:bold;" href="#order"><b>ORDER NOW</b></a>
                   </div>
                 </li>
               </ul>
@@ -102,11 +113,11 @@
   <div id="menu">
     <div id="menu-container">
       <div class="menu-title"><b>MENU</b></div>
-      <table class="menu-table">
-        <tbody class="menu-table-body">
-          <tr class="menu-table-row">
-            <td class="menu-category">Pizza</td>
-            <td class="menu-dishes">
+      <div class="menu-table">
+        <div class="menu-table-body">
+          <div class="menu-table-row">
+            <div class="menu-category">Pizza</div>
+            <div class="menu-dishes">
               <div class="menu-dish">
                 <div class="menu-dish-title"><div>VEG PIZZA</div><div class='menu-dish-price'>229/-</div></div>
                 <div class="menu-dish-description">with 2x cheese and toppings</div>
@@ -119,10 +130,10 @@
                 <div class="menu-dish-title"><div>VEGGIE MUSHROOM PIZZA</div><div class='menu-dish-price'>249/-</div></div>
                 <div class="menu-dish-description">with 2x cheese and toppings</div>
               </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -133,43 +144,79 @@
     </div>
   </div>
 
+  <div id="order">
+    <div id="order-container">
+      <div class="order-title"><b>ORDER NOW</b></div>
+      <div id="order-container-inner">
+        <form id="order-form">
+          <select required onchange="fun1();" class="form-el order-dishes-dropdown">
+            <option class="order-dish" hidden>Dish</option>
+            <option class="order-dish">VEGGIE PIZZA</option>
+            <option class="order-dish">PANEER VEGGIE PIZZA</option>
+            <option class="order-dish">MUSHROOM VEGGIE PIZZA</option>
+          </select>
+          <select required onchange="fun2();" class="form-el order-qty-dropdown">
+            <option class="order-qty" hidden>Quantity</option>
+            <option class="order-qty">1</option>
+            <option class="order-qty">2</option>
+            <option class="order-qty">3</option>
+            <option class="order-qty">4</option>
+            <option class="order-qty">5</option>
+            <option class="order-qty">6</option>
+            <option class="order-qty">7</option>
+            <option class="order-qty">8</option>
+            <option class="order-qty">9</option>
+            <option class="order-qty">10</option>
+          </select>
+          <input class="form-el order-input" type="text" placeholder="Name"/>
+          <input class="form-el order-input" type="text" placeholder="Phone Number"/>
+          <textarea rows="3" class="form-el-1 order-input order-addr" placeholder="Address"></textarea>
+          <input class="form-el order-input" type="text" placeholder="Landmark"/>
+          <input class="form-el order-input" type="text" placeholder="Pin Code"/>
+          <input class="form-el order-input" type="text" readonly placeholder="City" value="Hyderabad"/>
+          <input class="form-el order-btn" type="button" value="Order">
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div id="contact">
     <div id="contact-container">
       <div class="contact-title"><b>CONTACT</b></div>
       <div id="contact-container-inner">
         <div class="contact-image-container">
-          <img style="width:100%;" src="images/customer-service-svgrepo-com.svg"/>
+          <img style="width:90%;min-width:240px;" src="images/customer-service-svgrepo-com.svg"/>
         </div>
         <div class="contact-table-container">
           <table class="contact-table">
             <tbody class="contact-table-body">
               <tr class="contact-table-row">
-                <td class="contact-icon"><img style="width:30px;" src="images/location-sign-svgrepo-com.svg"/></td>
-                <td valign="bottom" class="contact-info-container">
+                <td class="contact-icon"><img src="images/location-sign-svgrepo-com.svg"/></td>
+                <td class="contact-info-container">
                   <div style="padding-bottom: 0px;" class="contact-info">
                     <div class="contact-info-line">Tarnaka, Secunderabad</div>
                   </div>
                 </td>
               </tr>
               <tr class="contact-table-row">
-                <td class="contact-icon"><img style="width:30px;" src="images/clock-svgrepo-com.svg"/></td>
-                <td valign="bottom" class="contact-info-container">
+                <td class="contact-icon"><img src="images/clock-svgrepo-com.svg"/></td>
+                <td class="contact-info-container">
                   <div style="padding-bottom: 0px;" class="contact-info">
                     <div class="contact-info-line">Mon-Sun: 12pm-10pm</div>
                   </div>
                 </td>
               </tr>
               <tr class="contact-table-row">
-                <td class="contact-icon"><img style="width:30px;" src="images/mail-svgrepo-com.svg"/></td>
-                <td valign="bottom" class="contact-info-container">
+                <td class="contact-icon"><img src="images/mail-svgrepo-com.svg"/></td>
+                <td class="contact-info-container">
                   <div style="padding-bottom: 0px;" class="contact-info">
                     <div class="contact-info-line">crownspizza.in@gmail.com</div>
                   </div>
                 </td>
               </tr>
               <tr class="contact-table-row">
-                <td class="contact-icon"><img style="width:30px;" src="images/phone-call-svgrepo-com.svg"/></td>
-                <td valign="bottom" class="contact-info-container">
+                <td class="contact-icon"><img src="images/phone-call-svgrepo-com.svg"/></td>
+                <td class="contact-info-container">
                   <div style="padding-bottom: 0px;" class="contact-info">
                     <div class="contact-info-line">040-99999999</div>
                   </div>
@@ -179,6 +226,12 @@
         </table>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div id="footer-container">
+      
     </div>
   </div>
 </body>
