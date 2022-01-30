@@ -1,26 +1,159 @@
-.mycontainer1 , .mycontainer2 , .mycontainer3 , .mycontainer4 , .mycontainer5 , .mycontainer6 {
-    box-sizing: border-box;
-    max-width: 1024px;
-    width: 100%;
-    margin: 0px auto;
-    padding: 0px 60px;
-}
-
 body {
     margin: 0;
-    padding-top: 61.44px;
-    font-family: "Maison Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    /* padding-top: 61.44px; */
+    font-family: "Bartender Bold Serif",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
-#home {
+#home, #menu, #about, #contact {
+    display: flex;
+    justify-content: center;
     width: 100%;
     text-align: center;
     background-color: black;
 }
 
-#home img {
+#menu-container, #about-container {
     width: 100%;
-    max-width: 1280px;
+    padding: 100px 12% 0;
+    text-align: center;
+}
+
+#home-container {
+    width: 100%;
+    padding: 0 12%;
+    text-align: center;
+}
+
+#contact-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 100px 10% 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact-container-inner {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-row1 {
+    width: 100%;
+    display: flex;
+}
+
+.home-row1-col1 {
+    width: 50%;
+}
+
+.home-row1-col2 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20%;
+    align-items: center;
+    width: 50%;
+}
+
+.home-text1 {
+    position: relative;
+    left: -15%;
+    font-size: 4.2vw;
+    font-family: "Bartender Semi Condensed Serif Pressed",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight:bold;
+    color: #ad9a74;
+}
+
+.home-text2 {
+    font-size: 2vw;
+    font-family: "BalsamiqSans-Italic";
+    font-style: italic;
+    color: #ad9a74;
+}
+
+.home-text3 {
+    position: relative;
+    left: 15%;
+    font-size: 5vw;
+    font-family: lobster;
+    color: #ad9a74;
+}
+
+.menu-title, .about-title, .contact-title {
+    font-size: 2.5em;
+    font-family: "Bartender Semi Condensed Serif Pressed",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    color: #ad9a74;
+    font-weight:bold;
+    padding: 0 0 50px 0;
+}
+
+.menu-table, .menu-table-body, .menu-table-row, .contact-table {
+    width: 100%;
+}
+
+.contact-image-container {
+    width: 100%;
+    padding-right: 10%;
+}
+
+.contact-table-container {
+    background-color:#232323;
+    padding: 30px;
+}
+
+.menu-table-row, .contact-table-row {
+    vertical-align: top;
+    padding-bottom: 20px;
+}
+
+.menu-category {
+    width: 30%;
+    color: #808080;
+    font-size: 2em;
+    text-align: right;
+    padding-right: 5%;
+}
+
+.contact-icon {
+    color: #808080;
+    font-size: 2em;
+    padding-right: 30px;
+}
+
+.menu-dishes {
+    width: 70%;
+    text-align: left;
+    padding-left: 5%;
+}
+
+.contact-info-container {
+    text-align: left;
+}
+
+.menu-dish, .contact-info {
+    padding-bottom: 30px;
+}
+
+.menu-dish-title {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Bartender Semi Condensed Serif Pressed",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    color: #ad9a74;
+    font-size: 2em;
+    padding-bottom: 10px;
+}
+
+.menu-dish-price {
+    padding-right: 10%;
+}
+
+.menu-dish-description, .contact-info-line {
+    color: #808080;
+    font-size: 1.5em;
+    text-align: left;
 }
 
 .navbar-toggler>.close-icon {
@@ -33,7 +166,7 @@ body {
 
 .nav-container {
     padding: 8px 0px;
-    background-color: black;
+    background-color: transparent;
 }
 
 .navbar-brand {
@@ -766,7 +899,7 @@ a:hover {
     .list1 {
         position: absolute;
         right: 0;
-        margin-right: 20px;
+        margin-right: 40px;
     }
 
     .button1 {
@@ -912,7 +1045,7 @@ a:hover {
     .list1 {
         position: absolute;
         right: 0;
-        margin-right: 20px;
+        margin-right: 40px;
     }
 
     .col-d {
