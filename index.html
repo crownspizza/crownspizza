@@ -45,6 +45,19 @@
     function fun2() {
       document.getElementsByClassName("order-qty-dropdown")[0].style.color = "#fff";
     }
+
+    $(document).ready(function() {
+      $(document).on("scroll", function() {
+        console.log("--------->");
+        if($(window).width() >= 768) {
+          if($(this).scrollTop() >= $('#home').outerHeight()) {
+            $(".nav-container").first().css("background-color", "black");
+          } else {
+            $(".nav-container").first().css("background-color", "transparent");
+          }
+        }
+      });
+    });
   </script>
 </head>
 
