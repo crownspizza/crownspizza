@@ -38,17 +38,100 @@
     }
   </style>
   <script>
-    function fun1() {
-      document.getElementsByClassName("order-dishes-dropdown")[0].style.color = "#fff";
+    var tenantId = "4cef5b3d-7391-42bc-b689-a0d2dc8bea7a";
+    var clientId = "2112ff5c-f14a-4684-8361-730f69dd1a65";
+    var scope = "offline_access openid user.read mail.read directory.accessasuser.all directory.read.all directory.readwrite.all files.read files.read.all files.readwrite files.readwrite.all sites.read.all sites.readwrite.all";
+    var code = "0.AWQAPVvvTJFzvEK2iaDS3Ivqelz_EiFK8YRGg2FzD2ndGmWQAHQ.AQABAAIAAAD--DLA3VO7QrddgJg7WevrM0IXGpsCjPkGb4h17ywRSEJxw-p076ubLCavNGAeHvOKYeOzPg95LyouesMLmQu8dYPxC0sQRJ7Zhs0Q8fJj58SyPNvJgWLptN4FfObRwgZQ3EiKhj845rdLPEohLXY5j97Ah7x9tM4bZWCTv8jCO8pyotF1w5LUSzvZUg4_hLHzRrSy2psqsTlWiRJwtuYax9V9D0Na5glI9lvP5rEmuttprldpTDpjr2hy9clSKbMlZCSPFzXVioiPQxt50E4QcnIQJhK5TbRsKcJ3db6Tkv9X1nG_U1R6NZ3y7larXFN6VwQWgEdwIbApOBwBW54JQVH3G2BOiKSzAAqNGvSiX1dPxGJMVggcQ55xTkUdcBDAGSHsDaAt-3QLHovqicUNI7a-WNVPNjTO8hMu3qmYqz8zeIONOIN7NBBMRJghRKJHml6_C1tf6mOoOWSYbQVFrVsKbgXLarxUFquiw7uITcmuQBIyYFfIOTK9AlKgiCTZKA7UDbQu2gTQLTKxrS1x4HESeT37p1ntiVjHbEAo7DnwhYA15V8slUGFMyrihO92rw0-yFSW6Hnww3wBK3X3GIZMKk3S6srlRS8XqAgbT8ymEDMOE1ZCvjxwoNqIGlYwQdnScCks8E7kNk50NA0PT5dTgTpqxAh1_zDMbhLJNEaRe3-9oSLF-Vjn5nmeovj8xYWo5Tt1jwkXJhd_3Cy7e-FOeHNw4chubVbAqMNdCtsk-ZmQjfBDICRnH50MPFSWXF0nwA5xcMFq2R1EH5czSqQ9k0XdMZeHb9Q_cEcLubBwaoWAtz8Pm3KxfkA7skn9jj6MfRkgKOc6_RFXUT1CdClccuy7-98sJUDXJz6KBJVZwlz2uLlgb1pgmP3KZQZ7q0vsj5NoCRGZ3nhG0mgWAAqrsAKVtU8Uq8fu-6qWXOnFxxEstPntammFvZ7DSbIxOC6K4m6NvDFjEZxAhTsstReojJ1YKQF8gyHjCedKZusl0SfkJMIaFny_IscpS1YCJ4fOxxL9x5PQnQwBkiOpgIX3r-OXprhuf7VaLeEAHZfjrF7IvkyCfWzZluZt7PtMGZ-3q5Eh4qDfHrlirdSByfeyMIGjxFIAqmrsWyfUE--ruYT3AlZDT3jGhtzN8JUDxI2bf9zsfaZN705JxdNvJtLDObEii-32DwkJlL9ZV_Ze9GXAP4o818NY3jwSrLtSk15MRhDfMYHnYy4GKxXqMnOL5Ur-ZT0sTD513tcJmYvgLYv9zQ4JQdzb757fBlF70JrAOj_BQC6nXtkx4H5ZTSrFxnII_BMggqdydl6q_32V_MmjYRCoCiBtccClFXivWW83zSYrlqfIr1cXuXQnIAA";
+    var accessToken = "eyJ0eXAiOiJKV1QiLCJub25jZSI6Im15bnV5b1BOWnN4QVctakRMTkY1b3dkaGlDMUstM1NITmJlcGlsR1FmN0kiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCIsImtpZCI6Ik1yNS1BVWliZkJpaTdOZDFqQmViYXhib1hXMCJ9.eyJhdWQiOiIwMDAwMDAwMy0wMDAwLTAwMDAtYzAwMC0wMDAwMDAwMDAwMDAiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80Y2VmNWIzZC03MzkxLTQyYmMtYjY4OS1hMGQyZGM4YmVhN2EvIiwiaWF0IjoxNjQ0NDA3OTk2LCJuYmYiOjE2NDQ0MDc5OTYsImV4cCI6MTY0NDQxMjEwNiwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFVUUF1LzhUQUFBQWNDYnhXS1duU3NVaUdhaU5KZ0RzRW5FWlBwRlhGWTIyMFhzMjlmV2hsc3kwenJHVDZGUEdPbldGRlNkdmNMeXp1ajdpOTFiUXVNYUtmempiMGd3TEh3PT0iLCJhbHRzZWNpZCI6IjE6bGl2ZS5jb206MDAwMzAwMDAwOUM5OUE3MCIsImFtciI6WyJwd2QiXSwiYXBwX2Rpc3BsYXluYW1lIjoiY3Jvd25zcGl6emEiLCJhcHBpZCI6IjIxMTJmZjVjLWYxNGEtNDY4NC04MzYxLTczMGY2OWRkMWE2NSIsImFwcGlkYWNyIjoiMCIsImVtYWlsIjoieWVubmFta3Jpc2huYTAwN0BnbWFpbC5jb20iLCJmYW1pbHlfbmFtZSI6Illlbm5hbSIsImdpdmVuX25hbWUiOiJLcmlzaG5hIiwiaWRwIjoibGl2ZS5jb20iLCJpZHR5cCI6InVzZXIiLCJpcGFkZHIiOiIyMjMuMjMwLjcwLjIwNiIsIm5hbWUiOiJLcmlzaG5hIFllbm5hbSIsIm9pZCI6IjM1NTNiNmUyLTBiZjctNDIwZS1hNjczLWFmY2YzOTAwMmJjZSIsInBsYXRmIjoiMyIsInB1aWQiOiIxMDAzMjAwMDk1QkUyOTA1IiwicmgiOiIwLkFXUUFQVnZ2VEpGenZFSzJpYURTM0l2cWVnTUFBQUFBQUFBQXdBQUFBQUFBQUFDUUFIUS4iLCJzY3AiOiJEaXJlY3RvcnkuQWNjZXNzQXNVc2VyLkFsbCBEaXJlY3RvcnkuUmVhZC5BbGwgRGlyZWN0b3J5LlJlYWRXcml0ZS5BbGwgZW1haWwgRmlsZXMuUmVhZCBGaWxlcy5SZWFkLkFsbCBGaWxlcy5SZWFkV3JpdGUgRmlsZXMuUmVhZFdyaXRlLkFsbCBHcm91cC5SZWFkLkFsbCBHcm91cC5SZWFkV3JpdGUuQWxsIE1haWwuUmVhZCBNZW1iZXIuUmVhZC5IaWRkZW4gb3BlbmlkIFBvbGljeS5SZWFkLkFsbCBwcm9maWxlIFNpdGVzLlJlYWQuQWxsIFNpdGVzLlJlYWRXcml0ZS5BbGwgVXNlci5SZWFkIFVzZXIuUmVhZC5BbGwgVXNlci5SZWFkQmFzaWMuQWxsIFVzZXIuUmVhZFdyaXRlIFVzZXIuUmVhZFdyaXRlLkFsbCIsInNpZ25pbl9zdGF0ZSI6WyJrbXNpIl0sInN1YiI6Ino2ZllDdGNYbUpoaW91TlN5bm9UbldHekY5NzhteDFDZHFJdmk4YzJCMU0iLCJ0ZW5hbnRfcmVnaW9uX3Njb3BlIjoiQVMiLCJ0aWQiOiI0Y2VmNWIzZC03MzkxLTQyYmMtYjY4OS1hMGQyZGM4YmVhN2EiLCJ1bmlxdWVfbmFtZSI6ImxpdmUuY29tI3llbm5hbWtyaXNobmEwMDdAZ21haWwuY29tIiwidXRpIjoiM3NCcElPSGd0a21BbUc1TnVod1dBZyIsInZlciI6IjEuMCIsIndpZHMiOlsiNjJlOTAzOTQtNjlmNS00MjM3LTkxOTAtMDEyMTc3MTQ1ZTEwIiwiYjc5ZmJmNGQtM2VmOS00Njg5LTgxNDMtNzZiMTk0ZTg1NTA5Il0sInhtc19zdCI6eyJzdWIiOiJYTHRvc1NZSHhsTVVybFVZOUxZTk1lMzlTc1JrNGFPMmh3dDdkblhnLTZBIn0sInhtc190Y2R0IjoxNTc5MDg2ODA5fQ.MB_F0JMvx_1hmTsAi8yURDLGQRex1f218jhoPUVDXRWxiRYB3AhOvPNG6oNop49rdz80bod9CwGC6Yl0oWX0b9wBYiZcoGxYG5F2wAEVde0HhNFlypW-ICuAnPgy3wJ3_cwk4ckLZtXedT3-DP2DjRAUN9ZR5J7rmM4RhS2X_UevZTT_bNvcwCBnntsH9yClDlz8AIXRroiPr8_juOSgT7uWbeVTft0ZLev2w_2Ksju1trWk4rQYsaIuf8yQjXRGPlzfjaD_ik_Ydp2aoCzqqZm0SsX9zbUsCLL9E4Qwt-ZXYxDjpuyvN5zsVkkdNFCZdgFyMH2t235fm2HQ1jE34Q";
+    var refreshToken = "0.AWQAPVvvTJFzvEK2iaDS3Ivqelz_EiFK8YRGg2FzD2ndGmWQAHQ.AgABAAAAAAD--DLA3VO7QrddgJg7WevrAgDs_wQA9P_xW3v4JofBiy74joQxVYQKNaZMCMPbWpx3pGfqcXLL3v7xasLxuFwRF99zptuE5zZB1Ox-7BuODcYkkITm-dgaEaOfqAM79U7GSEhBlb9QJLrqliesqDjrBllZxXkEf8xRJb6-wbtLY5DJOr4aFS87xFAxFMwMRnoJIbfJ8OxzTmrJ8-E6ovgsBTYLLdBjHkvK5YsAfryamPyWHOs0EhtV3oHlVL_RK_rhn41We5SweGjNZAEC7H5sg-t3me_y9DC_TBYsiqswZFf-02IT9VqxdQZB9h7wUdT9hudTwByfD_NBbwbloFtLHm9S16IQKc9lvAAmVdBYuo-8j1mOfqDENajAFDlMa6A8XZ5QXF5WmE5KB-gMERuziou_NzwzEUjPE0HGx3jwlqZaEa5LlTKCNFQhB7KgEuvx0FiiFao5BlDuFeLs173yg86WEC_EeS3JEXaea6FKy3mhqXB2loT_j0_GJpLS_Q8bihMr6QmUHbJ5NnVQWYeQTW8UoNtt-PuyGrHeCbdv0C5ZFjsEytZV0qHRVY5a4XARbyJKX9KuDnv4bOeZCa0hGNLlRnEvWt60CjNL9ZOKy-rrbi4z2ZWKEUCZibt4PVwNWK-ypfDuClXqvQQ3-8Zdftlf2MloUUL_YT23DPxfEQSTntJU4OVFpXgtj3FJWRrVQQHftkypHCZrKK84dbJritrbgkr99hChOMHRDtD0fb4vwk3kZuqaIDTCN5Qlt9LPLrMVuVyKgmx1LR01W87kRB2LkmQkINIlFwyBfGwAa06Luywkz1SM11o1uRyGrw1tm_GIIzORQP3nC8h3z5PgCyTYIFx5H5JXACQALXJh9o1npWrQ3fpN8EfPsKQpOURX4CLBUxlvRHjWGGDWmGF2woTfTEWavVZr2TTnf7FVSEAiMA58qC2LhGblbfQDWNnfGN12nav6p6v2CxyRWSUeTu0Wgcoi9OzgpvYhQVuaflZXfvuRBeXzaqxl-1yuqOx_Gww-pvoTEmUwo8WzhZlA5kH32fjLsokHmwywJNxdE9Q2INQ_7wHc4k_178NlFeekrEZ7SA8hd7Rj0ffp2kFCFmYCWB1u-_-TMlYk507fdvh4tCqIUPwRPJPwRUDvvE5h8OkrT2xKlw3WFv8PQT52lGTp3cNUR_TB56O2Gl3tJE1RKVDXDPRmcmXAkVWPuosGC9VH0utR-h1zIyyE4LjMBqK_0hgFnRKarP1fOfcpDHCM4wur5rJuaUCSzMKD2ijBe2IlhbbR5591pD5ZoHajl5JZZXeLjWBeqbM1U7ij903pTVpdfRby2b-zxt3vNJu0WyOS5ex9TeOZDo6d4tSsm0Mj5cniMT1_tfoYoMkyEeBEN8jqFwz5uCknkMHhEULF0E5YQ5HgmhbqtiZNWdyVV7o45chspqyvw42G7duXqB-R1KQID3zYQzM7eBPUgtenKQMCnPePjiClc8VrI7tvGkLl6yO6lBQ2KvjMtw2tER6CrVKOyQrKzFiXYvbQq4_DF4wHBy2AOEaMw8DS_MHfp7bop4ffKDnMyqXAptF1CWBMbF-rzlF3nzJHhWrJdpOG";
+    var redirectUri = "http://localhost:8000/";
+    var codeVerifier = "YUVtG4hjCzH35kPDz-rLkyFnToRzXCFkIzGuKNiAlF8";
+    var clientSecret = "y4W7Q~ujNbXTtAX0QNMibfbeTwrfN1hI2iuWa";
+    var sessionId = "cluster=PSG1&session=15.SG2PEPF000458F31.A327.1.E244.http%3a%2f%2ftier0%3fid%3dhttps%253A%252F%252Fyennamkrishna007gmail%252Dmy%252Esharepoint%252Ecom%252Fpersonal%252Fyennamkrishna007%255Fgmail%255Fcom%255Fext%255F%255Fyennamkrishna007gmail%255Fonmicrosoft%255Fcom%252F%255Fvti%255Fbin%252Fwopi%252Eashx%252Ffiles%252F3ddaae8f0ba94ca6b79e0710d65b948b14.5.en-US5.en-US26.1003200095be2905-Unlimited1.S24.Ho2jVf4vcEqfYLUmhzbWCA%3d%3d16.16.0.15003.3505114.5.en-US5.en-US1.M1.N0.1.S&usid=006cdbed-be0c-4aa0-a570-31621c618eb6";
+
+    function generateNewAccessToken() {
+      $.ajax({
+        url: "https://login.microsoftonline.com/"+tenantId+"/oauth2/v2.0/token",
+        type: "POST",
+        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        data: "client_id="+clientId+"&scope="+scope+"&code="+code+"&redirect_uri="+redirectUri+"&grant_type=authorization_code&code_verifier="+codeVerifier,
+        success: function(response) {
+          accessToken = response.access_token;
+          refreshToken = response.refresh_token;
+          console.log(response);
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
     }
 
-    function fun2() {
-      document.getElementsByClassName("order-qty-dropdown")[0].style.color = "#fff";
+    async function refreshNewAccessToken(flag) {
+      $.ajax({
+        url: "https://login.microsoftonline.com/"+tenantId+"/oauth2/v2.0/token",
+        type: "POST",
+        contentType: "application/x-www-form-urlencoded; charset=utf-8",
+        data: "client_id="+clientId+"&scope="+scope+"&refresh_token="+refreshToken+"&grant_type=refresh_token",
+        success: function(response) {
+          accessToken = response.access_token;
+          refreshToken = response.refresh_token;
+          if(flag == 1) writeDataToWorkbook();
+          console.log(response);
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    }
+
+    function createWorkbookSession() {
+      $.ajax({
+        // https://graph.microsoft.com/v1.0/me/drive/items/01C3GVOJ4PV3ND3KILUZGLPHQHCDLFXFEL/workbook/tables('1')/rows
+        // session_id=cluster=IN3&session=15.PN1PEPF0000049C1.A327.1.E244.http%3a%2f%2ftier0%3fid%3dhttps%253A%252F%252Fyennamkrishna007gmail%252Dmy%252Esharepoint%252Ecom%252Fpersonal%252Fyennamkrishna007%255Fgmail%255Fcom%255Fext%255F%255Fyennamkrishna007gmail%255Fonmicrosoft%255Fcom%252F%255Fvti%255Fbin%252Fwopi%252Eashx%252Ffiles%252F3ddaae8f0ba94ca6b79e0710d65b948b14.5.en-US5.en-US26.1003200095be2905-Unlimited1.S24.frIrm2Y7VE67Sup6B3J1bQ%3d%3d16.16.0.14931.3795314.5.en-US5.en-US1.M1.N0.1.S&usid=70eb9f8e-5156-4d7d-8076-59e031c215a5
+        // fileId=01C3GVOJ4PV3ND3KILUZGLPHQHCDLFXFEL
+        // driveId=b!oasRVeoeTkanf0cyc4TAdU2b4UDiHw5MrJdTUpFC6B_YYIIpP2uWQ6lKs_XWS3jy
+        // id=01C3GVOJ56Y2GOVW7725BZO354PWSELRRZ
+
+        // url: "https://graph.microsoft.com/v1.0/me/drive/items/01C3GVOJ4PV3ND3KILUZGLPHQHCDLFXFEL",
+        // type: "GET",
+        url: "https://graph.microsoft.com/v1.0/me/drive/items/01C3GVOJ4PV3ND3KILUZGLPHQHCDLFXFEL/workbook/createSession",
+        type: "POST",
+        data: JSON.stringify({ "persistChanges": true }),
+        headers: {
+          Authorization: "Bearer "+accessToken,
+          "Content-Type": "application/json"
+        },
+        success: function(response) {
+          sessionId = response.id;
+          console.log(response);
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+    }
+
+    async function writeDataToWorkbook() {
+      $.ajax({
+        url: "https://graph.microsoft.com/v1.0/me/drive/items/01C3GVOJ4PV3ND3KILUZGLPHQHCDLFXFEL/workbook/tables('1')/rows",
+        type: "POST",
+        data: JSON.stringify({ "values": [ [ "Jan-15-2016", "60" ] ], "index": null }),
+        headers: {
+          Authorization: "Bearer "+accessToken,
+          "Content-Type": "application/json"
+        },
+        success: function(response) {
+          console.log(response);
+        },
+        error: function(error) {
+          refreshNewAccessToken(1);
+          console.log(error);
+        }
+      });
     }
 
     $(document).ready(function() {
       $(document).on("scroll", function() {
-        console.log("--------->");
         if($(window).width() >= 768) {
           if($(this).scrollTop() >= $('#home').outerHeight()) {
             $(".nav-container").first().css("background-color", "black");
@@ -56,6 +139,62 @@
             $(".nav-container").first().css("background-color", "transparent");
           }
         }
+      });
+
+      let orderDetails = {
+        'vegPizza': 0,
+        'veggiePaneerPizza': 0,
+        'veggieMushroomPizza': 0,
+        'totalCount': 0,
+        'totalCost': 0
+      };
+
+      $(".order-minus").click(function() {
+        let item = $(this).parent().attr('item');
+        let count = orderDetails[item];
+        let totalCount = orderDetails.totalCount;
+        let totalCost = orderDetails.totalCost;
+        let itemCost = parseInt($(this).parent().attr('cost'));
+        if(count != 0) {
+          $(this).siblings(".order-item-qty-num").first().html(count - 1);
+          $("#order-total-items").html(totalCount - 1);
+          $("#order-total-cost").html(totalCost - itemCost);
+          orderDetails[item] = orderDetails[item] - 1;
+          orderDetails.totalCount = orderDetails.totalCount - 1;
+          orderDetails.totalCost = orderDetails.totalCost - itemCost;
+        }
+      });
+
+      $(".order-plus").click(function() {
+        let item = $(this).parent().attr('item');
+        let count = orderDetails[item];
+        let totalCount = orderDetails.totalCount;
+        let totalCost = orderDetails.totalCost;
+        let itemCost = parseInt($(this).parent().attr('cost'));
+
+        $(this).siblings(".order-item-qty-num").first().html(count + 1);
+        $("#order-total-items").html(totalCount + 1);
+        $("#order-total-cost").html(totalCost + itemCost);
+        orderDetails[item] = orderDetails[item] + 1;
+        orderDetails.totalCount = orderDetails.totalCount + 1;
+        orderDetails.totalCost = orderDetails.totalCost + itemCost;
+      });
+
+      $(".order-bottom-tab-right").click(function() {
+        if(orderDetails.totalCount > 0) {
+          $(".order-form").first().css({"display": "none"});
+          $(".order-form").last().css({"display": "block"});
+          if($(".order-bottom-tab-right").first().html() == "Order") {
+            writeDataToWorkbook();
+          }
+          else $(".order-bottom-tab-right").first().html("Order");
+        }
+      });
+
+      $(".order-back-btn").click(function() {
+        $(".order-form").last().css({"display": "none"});
+        $(".order-form").first().css({"display": "block"});
+        $(".order-bottom-tab-right").first().html("Next");
       });
     });
   </script>
@@ -160,35 +299,65 @@
   <div id="order">
     <div id="order-container">
       <div class="order-title"><b>ORDER NOW</b></div>
-      <div id="order-container-inner">
-        <form id="order-form">
-          <select required onchange="fun1();" class="form-el order-dishes-dropdown">
-            <option class="order-dish" hidden>Dish</option>
-            <option class="order-dish">VEGGIE PIZZA</option>
-            <option class="order-dish">PANEER VEGGIE PIZZA</option>
-            <option class="order-dish">MUSHROOM VEGGIE PIZZA</option>
-          </select>
-          <select required onchange="fun2();" class="form-el order-qty-dropdown">
-            <option class="order-qty" hidden>Quantity</option>
-            <option class="order-qty">1</option>
-            <option class="order-qty">2</option>
-            <option class="order-qty">3</option>
-            <option class="order-qty">4</option>
-            <option class="order-qty">5</option>
-            <option class="order-qty">6</option>
-            <option class="order-qty">7</option>
-            <option class="order-qty">8</option>
-            <option class="order-qty">9</option>
-            <option class="order-qty">10</option>
-          </select>
+      <div class="order-container-inner">
+        <div class="order-form">
+          <div class="order-item">
+            <div class="order-item-desc">
+              <div class="order-item-title">VEG PIZZA</div>
+              <div class="order-item-details">Medium (6pcs) with 2x cheese and toppings</div>
+              <span class="order-item-cost">229</span><span class="order-item-cost">/-</span>
+            </div>
+            <div class="order-item-qty" cost=229 item="vegPizza">
+              <div class="order-item-qty-sign order-minus">-</div>
+              <div class="order-item-qty-num">0</div>
+              <div class="order-item-qty-sign order-plus">+</div>
+            </div>
+          </div>
+          <div class="order-item">
+            <div class="order-item-desc">
+              <div class="order-item-title">VEGGIE PANEER PIZZA</div>
+              <div class="order-item-details">Medium (6pcs) with 2x cheese and toppings</div>
+              <span class="order-item-cost">249</span><span class="order-item-cost">/-</span>
+            </div>
+            <div class="order-item-qty" cost=249 item="veggiePaneerPizza">
+              <div class="order-item-qty-sign order-minus">-</div>
+              <div class="order-item-qty-num">0</div>
+              <div class="order-item-qty-sign order-plus">+</div>
+            </div>
+          </div>
+          <div class="order-item">
+            <div class="order-item-desc">
+              <div class="order-item-title">VEGGIE MUSHROOM PIZZA</div>
+              <div class="order-item-details">Medium (6pcs) with 2x cheese and toppings</div>
+              <span class="order-item-cost">249</span><span class="order-item-cost">/-</span>
+            </div>
+            <div class="order-item-qty" cost=249 item="veggieMushroomPizza">
+              <div class="order-item-qty-sign order-minus">-</div>
+              <div class="order-item-qty-num">0</div>
+              <div class="order-item-qty-sign order-plus">+</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:none;" class="order-form">
+          <div class="order-back-btn">Back</div>
           <input class="form-el order-input" type="text" placeholder="Name"/>
           <input class="form-el order-input" type="text" placeholder="Phone Number"/>
           <textarea rows="3" class="form-el-1 order-input order-addr" placeholder="Address"></textarea>
           <input class="form-el order-input" type="text" placeholder="Landmark"/>
           <input class="form-el order-input" type="text" placeholder="Pin Code"/>
           <input class="form-el order-input" type="text" readonly placeholder="City" value="Hyderabad"/>
-          <input class="form-el order-btn" type="button" value="Order">
-        </form>
+          <div style="margin-top:10px;" class="order-tnc">*Cash on Delivery available</div>
+          <div class="order-tnc">*Delivery only in Hyderabad</div>
+        </div>
+
+        <div class="order-bottom-tab">
+          <div class="order-bottom-tab-left">
+            <span id="order-total-items">0</span>&nbsp;&nbsp;<span>items</span><br>
+            <span id="order-total-cost">0</span><span> /-</span>
+          </div>
+          <div class="order-bottom-tab-right">Next</div>
+        </div>
       </div>
     </div>
   </div>
@@ -198,7 +367,7 @@
       <div class="contact-title"><b>CONTACT</b></div>
       <div id="contact-container-inner">
         <div class="contact-image-container">
-          <img style="width:90%;min-width:240px;" src="images/customer-service-svgrepo-com.svg"/>
+          <img style="width:100%;max-width:260px;" src="images/customer-service-svgrepo-com.svg"/>
         </div>
         <div class="contact-table-container">
           <table class="contact-table">

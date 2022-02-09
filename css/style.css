@@ -40,8 +40,10 @@ body {
     align-items: center;
 }
 
-#order-container-inner {
+.order-container-inner {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
 
@@ -118,7 +120,7 @@ body {
 
 .contact-image-container {
     width: 100%;
-    padding-right: 10%;
+    padding-right: 5%;
 }
 
 .contact-table-container {
@@ -146,34 +148,85 @@ body {
     padding-left: 5%;
 }
 
-#order-form {
+.order-form {
     max-width: 100%;
     width: 400px;
     text-align: left;
 }
 
-.order-dishes-dropdown, .order-qty-dropdown {
-    height: 31px;
-    max-width: 100%;
-    width: 400px;
-    color: #999;
-    background-color: transparent;
-    font-size: 1em;
-    padding: 0;
-    margin: 0;
-    border-radius: 0;
-    border: none;
-    font-weight: 400;
-    border-bottom: 2px solid #ad9a74;
-    padding-left: 8px;
+.order-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 25px;
 }
 
-.order-dish, .order-qty {
+.order-item-desc {
+    padding-right: 15px;
+}
+
+.order-item-title {
+    color: #ad9a74;
+    font-family: "Bartender Semi Condensed Serif Pressed",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1.6em;
+    font-weight: bold;
+}
+
+.order-item-details, .order-item-cost {
+    color: #808080;
+    font-family: "Bartender Bold Serif",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1em;
+}
+
+.order-item-qty {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    width: 80px;
+    min-width: 80px;
+    height: 30px;
+    font-weight: bold;
+    background-color: #ad9a74;
+    border-radius: 8px;
+    padding: 8px;
+    margin-top: 6px;
+}
+
+.order-item-qty-sign {
+    cursor: pointer;
+    font-size: 1.2em;
+    padding-bottom: 4px;
+    user-select: none;
+}
+
+.order-item-qty-num {
+    padding-bottom: 2px;
+    user-select: none;
+}
+
+.order-bottom-tab {
     max-width: 100%;
     width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
     color: #fff;
-    background-color: black;
-    max-width: 100%;
+}
+
+.order-bottom-tab-left {
+    font-size: 0.9em;
+    text-align: left;
+}
+
+.order-bottom-tab-right {
+    cursor: pointer;
+    background-color: #ad9a74;
+    border-radius: 2px;
+    font-weight: bold;
+    padding: 4px 10px;
+    user-select: none;
 }
 
 .form-el {
@@ -184,16 +237,17 @@ body {
     margin: 5px 0;
 }
 
-.order-btn {
-    right: 0;
-    color: #fff;
-    font-size: 1em;
-    font-weight: bold;
-    background-color: #ad9a74;
-    border: none;
-    border-radius: 10px;
-    padding: 8px 20px;
-    margin-top: 25px;
+.order-tnc {
+    color: #999;
+    font-size: 0.8em;
+}
+
+.order-back-btn {
+    cursor: pointer;
+    color: #999;
+    text-align: right;
+    user-select: none;
+    padding-bottom: 10px;
 }
 
 select option:hover {
@@ -216,7 +270,7 @@ select option:hover {
     padding-bottom: 4px;
 }
 
-.order-dishes-dropdown:focus, .order-qty-dropdown:focus, .order-input:focus {
+.order-input:focus {
     outline: none;
 }
 
@@ -446,6 +500,28 @@ a:hover {
 
     .nav-item {
         margin-top: 20px;
+    }
+
+    .order-item-title {
+        font-size: 1.4em;
+    }
+
+    .order-item-details, .order-item-cost {
+        font-size: 0.8em;
+    }
+
+    .order-item-qty {
+        width: 70px;
+        min-width: 70px;
+        height: 22px;
+    }
+
+    .order-item-qty-sign {
+        font-size: 1em;
+    }
+
+    .order-item-qty-num {
+        font-size: 0.8em;
     }
 }
 
